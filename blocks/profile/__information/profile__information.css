@@ -1,0 +1,9 @@
+.profile__information {
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  grid-template-rows: min-content min-content;
+  column-gap: 20px;
+  row-gap: 6px;
+  align-items: baseline;
+  /* grid-template-columns: minmax(200px, 460px) minmax(400px, 580px); */
+}

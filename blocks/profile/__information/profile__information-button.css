@@ -1,0 +1,10 @@
+.profile__information-button {
+  background-color: #000;
+  border: solid #fff 2px;
+  background-image: url(../../../images/edit_image.svg);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+}

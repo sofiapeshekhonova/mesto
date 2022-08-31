@@ -7,4 +7,15 @@
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: center;
+  /* grid-area: button; */
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+@media screen and (max-width:320px) {
+  .profile__information-button {
+    width: 18px;
+    height: 18px;
+  }
+
 }

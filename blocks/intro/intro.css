@@ -1,6 +1,13 @@
 .intro {
   display: flex;
   justify-content: space-between;
-  margin-top: 37px;
+  margin: 37px 0 47px;
   align-items: center;
+}
+
+@media screen and (max-width:320px){
+  .intro {
+    margin: 39px 0 36px;
+    flex-direction: column;
+  }
 }

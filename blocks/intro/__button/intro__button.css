@@ -7,3 +7,10 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+@media screen and (max-width:320px) {
+  .intro__button {
+    width: 100%;
+    margin-top: 36px;
+  }
+}

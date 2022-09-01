@@ -3,7 +3,6 @@
   font-size: 18px;
   line-height: 22px;
   margin: 0;
-  /* grid-area: job; */
   grid-column-start: 1;
   grid-column-end: 4;
   text-overflow: ellipsis;

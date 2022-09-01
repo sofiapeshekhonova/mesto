@@ -7,7 +7,6 @@
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: center;
-  /* grid-area: button; */
   grid-column-start: 2;
   grid-column-end: 3;
 }
@@ -18,5 +17,4 @@
     height: 18px;
     margin-bottom: 7px;
   }
-
 }

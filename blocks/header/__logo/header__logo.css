@@ -6,5 +6,6 @@
   .header__logo {
     max-width: 103px;
     max-height: 24px;
+    margin-left: 27px;
   }
 }

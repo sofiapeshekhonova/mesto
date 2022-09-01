@@ -9,14 +9,83 @@
     <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
+
     <header class="header">
       <img class="header__logo" src="./images/Logo_mesto.svg" alt="логотип место россия">
     </header>
     <main class="content">
-
+      <section class="intro">
+        <div class="profile">
+          <img class ="profile__picture" src="./images/photo.jpg" alt="фото профиля">
+          <div class="profile__information">
+            <h1 class="profile__information-name">Жак-Ив Кусто</h1>
+            <button class="profile__information-button links"></button>
+            <h2 class="profile__information-job">Исследователь океана</h2>
+          </div>
+        </div>
+        <button class="intro__button links"></button>
+      </section>
+      <section class="popup">
+        <div class="popup__container">
+          <botton class="popup__icon links"></botton>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="form">
+            <input type="text" class="popup__text popup_name" placeholder="Жак-Ив Кусто">
+            <input type="text" class="popup__text popup_job" placeholder="Исследователь океана">
+          <button class="popup__save">Сохранить</button>
+          </form>
+        </div>
+      </section>
+      <section aria-label="карточки с фотографиями">
+        <ul class="photo-cards">
+          <li class="photo-card">
+            <img class="photo-card__picture" src="./images/karasaevsk.jpg" alt="Шоанинский храм">
+            <div class="photo-card__description">
+              <h2 class="photo-card__description-text">Карачаевск</h2>
+              <button class="photo-card__description-like links"></button>
+          </div>
+          </li>
+          <li class="photo-card">
+            <img class="photo-card__picture" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+            <div class="photo-card__description">
+              <h2 class="photo-card__description-text">Гора Эльбрус</h2>
+              <button class="photo-card__description-like links"></button>
+          </div>
+          </li>
+          <li class="photo-card">
+            <img class="photo-card__picture" src="./images/dombay.jpg" alt="Горы Домбая">
+            <div class="photo-card__description">
+              <h2 class="photo-card__description-text">Домбай</h2>
+              <button class="photo-card__description-like links"></button>
+          </div>
+          </li>
+          <li class="photo-card">
+            <img class="photo-card__picture" src="./images/karasaevsk.jpg" alt="Шоанинский храм">
+            <div class="photo-card__description">
+              <h2 class="photo-card__description-text">Карачаево-Черкессия</h2>
+              <button class="photo-card__description-like links"></button>
+          </div>
+          </li>
+          <li class="photo-card">
+            <img class="photo-card__picture" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+            <div class="photo-card__description">
+              <h2 class="photo-card__description-text">Гора Эльбрус</h2>
+              <button class="photo-card__description-like links"></button>
+          </div>
+          </li>
+          <li class="photo-card">
+            <img class="photo-card__picture" src="./images/dombay.jpg" alt="Горы Домбая">
+            <div class="photo-card__description">
+              <h2 class="photo-card__description-text">Домбай</h2>
+              <button class="photo-card__description-like links"></button>
+          </div>
+          </li>
+        </ul>
+      </section>
     </main>
     <footer class="footer">
-      
+      <p class="footer__signature">© 2020 Mesto Russia</p>
     </footer>
+    <script src="script.js"></script> 
   </body>
 <html>

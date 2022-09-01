@@ -6,9 +6,16 @@
   margin: 0 auto;
   align-items: center;
 }
+
+@media screen and (max-width:920px) {
+  .header {
+    margin-left: 10px;
+  }
+}
+
 @media screen and (max-width:320px) {
   .header {
-    max-width: 282px;
     height: 84px;
+    margin: 0 auto;
   }
 }

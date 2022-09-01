@@ -1,0 +1,12 @@
+.photo-card__description-like {
+  border:none;
+  background-image: url(../../../images/heard.svg);
+  height: 19px;
+  width: 22px;
+  background-size: cover;
+  background-color: #fff;
+}
+
+.photo-card__description-like:active {
+  background-image: url(../../../images/heart_black.svg);
+}

@@ -1,6 +1,7 @@
 # Место
 #### **Учебный проект Яндекс-практикум.** 
-[проект](https://sofiapeshekhonova.github.io/russian-travel/)
+[проект](https://sofiapeshekhonova.github.io/mesto/)
+
  Первый проект с подключением Js.
  БЭМ-подход. организация файловой структуры Nested
 **Технологии:** CSS html JS

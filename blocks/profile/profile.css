@@ -4,9 +4,9 @@
   align-items: center;
 }
 
-@media screen and (max-width:320px){
+@media screen and (max-width: 528px){
   .profile {
-    gap: 22px;
+    gap: 28px;
     flex-direction: column;
   }
 }

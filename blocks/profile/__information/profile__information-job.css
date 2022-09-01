@@ -6,12 +6,15 @@
   /* grid-area: job; */
   grid-column-start: 1;
   grid-column-end: 4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 294px;
 }
 
-@media screen and (max-width:320px) {
+@media screen and (max-width: 528px) {
   .profile__information-job {
     font-size: 14px;
     line-height: 17px;
   }
-  
 }

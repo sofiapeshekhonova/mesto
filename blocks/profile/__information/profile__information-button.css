@@ -12,10 +12,11 @@
   grid-column-end: 3;
 }
 
-@media screen and (max-width:320px) {
+@media screen and (max-width: 528px) {
   .profile__information-button {
     width: 18px;
     height: 18px;
+    margin-bottom: 7px;
   }
 
 }

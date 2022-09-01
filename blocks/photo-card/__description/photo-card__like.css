@@ -6,3 +6,7 @@
   background-size: cover;
   background-color: #fff;
 }
+
+.photo-card__description-like:active {
+  background-image: url(../../../images/heart_black.svg);
+}

@@ -12,12 +12,12 @@
   /* grid-template-columns: minmax(200px, 460px) minmax(400px, 580px); */
 }
 
-@media screen and (max-width:320px){
+@media screen and (max-width: 528px){
   .profile__information {
     grid-template-columns: 1fr 18px;
     column-gap: 10px;
-    row-gap: 14px;
+    row-gap: 8px;
     justify-items: center;
-    
+    align-items: end;
   }
 }

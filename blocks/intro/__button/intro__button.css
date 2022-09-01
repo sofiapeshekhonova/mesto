@@ -8,9 +8,9 @@
   background-repeat: no-repeat;
 }
 
-@media screen and (max-width:320px) {
+@media screen and (max-width: 528px) {
   .intro__button {
     width: 100%;
-    margin-top: 36px;
+    margin-top: 32px;
   }
 }

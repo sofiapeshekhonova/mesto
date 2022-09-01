@@ -4,7 +4,6 @@
   line-height: 48px;
   margin: 0;
   max-width: 294px;
-  /* grid-area: name; */
   grid-column-start: 1;
   grid-column-end: 2;
   text-overflow: ellipsis;

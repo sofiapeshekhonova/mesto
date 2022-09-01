@@ -6,6 +6,7 @@
   border: none;
   top: 154px;
   right: 386px;
+  background-color: #000;
 }
 
 @media screen and (max-width: 320px) {

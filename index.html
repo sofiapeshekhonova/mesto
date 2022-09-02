@@ -18,22 +18,11 @@
           <img class ="profile__picture" src="./images/photo.jpg" alt="фото профиля">
           <div class="profile__information">
             <h1 class="profile__information-name">Жак-Ив Кусто</h1>
-            <button class="profile__information-button links"></button>
-            <h2 class="profile__information-job">Исследователь океана</h2>
+            <button class="profile__information-button links" type="button"></button>
+            <p class="profile__information-job">Исследователь океана</p>
           </div>
         </div>
         <button class="intro__button links"></button>
-      </section>
-      <section class="popup">
-        <button class="popup__icon links"></button>
-        <div class="popup__container">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="form">
-            <input type="text" class="popup__text popup__text_name" placeholder="Жак-Ив Кусто">
-            <input type="text" class="popup__text popup__text_job" placeholder="Исследователь океана">
-          <button class="popup__save">Сохранить</button>
-          </form>
-        </div>
       </section>
       <section aria-label="карточки с фотографиями">
         <ul class="photo-cards">
@@ -41,42 +30,42 @@
             <img class="photo-card__picture" src="./images/karasaevsk.jpg" alt="Шоанинский храм">
             <div class="photo-card__description">
               <h2 class="photo-card__description-text">Карачаевск</h2>
-              <button class="photo-card__description-like links"></button>
+              <button class="photo-card__description-like" type="button"></button>
             </div>
           </li>
           <li class="photo-card">
             <img class="photo-card__picture" src="./images/elbrus.jpg" alt="Гора Эльбрус">
             <div class="photo-card__description">
               <h2 class="photo-card__description-text">Гора Эльбрус</h2>
-              <button class="photo-card__description-like links"></button>
+              <button class="photo-card__description-like" type="button"></button>
             </div>
           </li>
           <li class="photo-card">
             <img class="photo-card__picture" src="./images/dombay.jpg" alt="Горы Домбая">
             <div class="photo-card__description">
               <h2 class="photo-card__description-text">Домбай</h2>
-              <button class="photo-card__description-like links"></button>
+              <button class="photo-card__description-like" type="button"></button>
             </div>
           </li>
           <li class="photo-card">
             <img class="photo-card__picture" src="./images/karasaevsk.jpg" alt="Шоанинский храм">
             <div class="photo-card__description">
               <h2 class="photo-card__description-text">Карачаево-Черкессия</h2>
-              <button class="photo-card__description-like links"></button>
+              <button class="photo-card__description-like" type="button"></button>
             </div>
           </li>
           <li class="photo-card">
             <img class="photo-card__picture" src="./images/elbrus.jpg" alt="Гора Эльбрус">
             <div class="photo-card__description">
               <h2 class="photo-card__description-text">Гора Эльбрус</h2>
-              <button class="photo-card__description-like links"></button>
+              <button class="photo-card__description-like" type="button"></button>
             </div>
           </li>
           <li class="photo-card">
             <img class="photo-card__picture" src="./images/dombay.jpg" alt="Горы Домбая">
             <div class="photo-card__description">
               <h2 class="photo-card__description-text">Домбай</h2>
-              <button class="photo-card__description-like links"></button>
+              <button class="photo-card__description-like" type="button"></button>
             </div>
           </li>
         </ul>
@@ -85,6 +74,17 @@
     <footer class="footer">
       <p class="footer__signature">© 2020 Mesto Russia</p>
     </footer>
-    <script src="script.js"></script> 
+    <section class="popup">
+      <div class="popup__container">
+        <button class="popup__icon links" type="button"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="form" name="profileForm">
+          <input type="text" class="form__text form__text_type_name" name="Name" placeholder="Жак-Ив Кусто">
+          <input type="text" class="form__text form__text_type_job" name="Job" placeholder="Исследователь океана">
+        <button class="form__save" type="form">Сохранить</button>
+        </form>
+      </div>
+    </section>
+    <script src="./scripts/script.js"></script> 
   </body>
 </html>

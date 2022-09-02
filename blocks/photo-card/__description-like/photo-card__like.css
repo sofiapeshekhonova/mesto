@@ -5,7 +5,18 @@
   width: 22px;
   background-size: cover;
   background-color: #fff;
+  opacity: 1;
+  transition-property: opasity;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  transition-delay: 2s;
 }
+  
+.photo-card__description-like:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
 
 .photo-card__description-like:active {
   background-image: url(../../../images/heart_black.svg);

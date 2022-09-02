@@ -1,4 +1,4 @@
-.popup__save {
+.form__save {
   margin: 50px 0 0;
   height: 50px;
   color: #fff;
@@ -13,17 +13,18 @@
   transition-timing-function: linear;
   transition-delay: 2s;
   width: 100%;
+  border: none;
 }
 
 @media screen and (max-width: 320px) {
-  .popup__save {
+  .form__save {
     margin-top: 44px;
     font-size: 14px;
     line-height: 17px;
   }
 }
 
-.popup__save:hover {
+.form__save:hover {
   opacity: 0.8;
   cursor: pointer;
 }

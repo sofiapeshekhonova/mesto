@@ -1,4 +1,4 @@
-.popup__text {
+.form__text {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
@@ -9,7 +9,13 @@
   width: 100%;
 }
 
-.popup__text:focus-visible {
+@media screen and (max-width: 320px) {
+  .form__text {
+    margin-top: 29px;
+  }
+}
+
+.form__text:focus-visible {
   outline: 3px solid blue;
   padding: 4px 0 4px 4px;
 }

@@ -14,13 +14,6 @@ function showClick() {
   
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  // profileName.textContent = nameInput.value;
-  // nameInput.textContent = profileName.value;
-  // nameInput = profileName;
-  // текуущие данные пользователя nameInput = form__text_type_name
-  // в поля формы profileName = profile__information-name
-  // nameInput = profileName;
-  // jobInput = nameValue
 }
 
 function closeClick() {

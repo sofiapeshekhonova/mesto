@@ -24,67 +24,51 @@
         </div>
         <button class="intro__button links" type="button"></button>
       </section>
-      <section aria-label="карточки с фотографиями">
-        <ul class="photo-cards">
-          <li class="photo-card">
-            <img class="photo-card__picture" src="./images/karasaevsk.jpg" alt="Шоанинский храм">
-            <div class="photo-card__description">
-              <h2 class="photo-card__description-text">Карачаевск</h2>
-              <button class="photo-card__description-like" type="button"></button>
-            </div>
-          </li>
-          <li class="photo-card">
-            <img class="photo-card__picture" src="./images/elbrus.jpg" alt="Гора Эльбрус">
-            <div class="photo-card__description">
-              <h2 class="photo-card__description-text">Гора Эльбрус</h2>
-              <button class="photo-card__description-like" type="button"></button>
-            </div>
-          </li>
-          <li class="photo-card">
-            <img class="photo-card__picture" src="./images/dombay.jpg" alt="Горы Домбая">
-            <div class="photo-card__description">
-              <h2 class="photo-card__description-text">Домбай</h2>
-              <button class="photo-card__description-like" type="button"></button>
-            </div>
-          </li>
-          <li class="photo-card">
-            <img class="photo-card__picture" src="./images/karasaevsk.jpg" alt="Шоанинский храм">
-            <div class="photo-card__description">
-              <h2 class="photo-card__description-text">Карачаево-Черкессия</h2>
-              <button class="photo-card__description-like" type="button"></button>
-            </div>
-          </li>
-          <li class="photo-card">
-            <img class="photo-card__picture" src="./images/elbrus.jpg" alt="Гора Эльбрус">
-            <div class="photo-card__description">
-              <h2 class="photo-card__description-text">Гора Эльбрус</h2>
-              <button class="photo-card__description-like" type="button"></button>
-            </div>
-          </li>
-          <li class="photo-card">
-            <img class="photo-card__picture" src="./images/dombay.jpg" alt="Горы Домбая">
-            <div class="photo-card__description">
-              <h2 class="photo-card__description-text">Домбай</h2>
-              <button class="photo-card__description-like" type="button"></button>
-            </div>
-          </li>
-        </ul>
+      <section class="photo-cards-container" aria-label="карточки с фотографиями">
       </section>
     </main>
     <footer class="footer">
       <p class="footer__signature">© 2020 Mesto Russia</p>
     </footer>
-    <section class="popup">
+    <section class="popup popup_profile">
       <div class="popup__container">
-        <button class="popup__icon links" type="button"></button>
+        <button class="popup__closeIcon popup__closeIcon_profile links" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="form" name="profileForm">
+        <form class="form form_profile" name="profileForm">
           <input type="text" class="form__text form__text_type_name" name="Name" placeholder="введите имя">
           <input type="text" class="form__text form__text_type_job" name="Job" placeholder="введите работу">
         <button class="form__save" type="submit">Сохранить</button>
         </form>
       </div>
     </section>
+    <section class="popup popup_newPlace">
+      <div class="popup__container">
+        <button class="popup__closeIcon popup__closeIcon_newPlace links"  type="button"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <form class="form form_newPlace" name="placeForm">
+          <input type="text" class="form__text form__text_type_placeName" name="placeName" placeholder="Название">
+          <input type="text" class="form__text form__text_type_placeLink" name="placeLink" placeholder="Ссылка на картинку">
+        <button class="form__save" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </section>
+    <section class="popup popup_images" aria-label="всплывающее акно с картинкой">
+      <figure class="popup_images_container">
+        <button class="popup__closeIcon popup__closeIcon_images links " type="button"></button>
+        <img class="popup_images_picture">
+          <figcaption class="popup_images_pictureCaption"></figcaption>
+      </figure>
+  </section>
+    <template class="photo-cards">
+      <li class="photo-card">
+     <img class="photo-card__picture">
+      <div class="photo-card__description">
+        <h2 class="photo-card__description-text"></h2>
+        <button class="photo-card__description-like" type="button"></button>
+      </div>
+      <button class="photo-card__wasteBasket links" type="button"></button>
+    </li>
+  </template>
     <script src="./scripts/script.js"></script> 
   </body>
 </html>

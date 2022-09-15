@@ -9,6 +9,6 @@
   align-items: center;
   justify-content: center;
   visibility: hidden;
-  opacity: 0;   
+  opacity: 0;
   transition: visibility .30s, opacity ease .30s;
 }

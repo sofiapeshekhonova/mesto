@@ -58,26 +58,25 @@ const initialCards = [
 
   //универсальная функция, клонирование блока и добавл значений 
 function createNewPlace(name, link) {
-  //дубль карточки
+  //дублируем карточки
   const photoCardElement = photoCardTemplate.querySelector('.photo-card').cloneNode(true);
-  //берем картинку
   const imgPopup = photoCardElement.querySelector('.photo-card__picture');
-  //копируем значения
+  //карточки добоавляем картинку, имя, альт
   imgPopup.alt = ` Картинка города: ${name}`;
   imgPopup.src = link;
   photoCardElement.querySelector('.photo-card__description-text').textContent = name;
-
-  //открытие попап картинки
+  //попап zoom картинку
   const popupPicture = document.querySelector('.popup_images');
     imgPopup.addEventListener('click', (evt) => {
       openPopup(popupPicture);
       addImage(evt, name);
     });
   const likeButton = photoCardElement.querySelector('.photo-card__description-like');
-  //добавляем слушатель нажатия like
+  //нажатие на лайк
   likeButton.addEventListener('click', evt => {
     evt.target.classList.toggle('photo-card__description-like_active'); 
   });
+  //мусорка
   const wasteBasket = photoCardElement.querySelectorAll('.photo-card__wasteBasket');
   wasteBasket.forEach(result => {
     result.addEventListener('click', () => {

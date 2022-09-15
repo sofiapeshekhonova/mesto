@@ -3,13 +3,15 @@
   background-image: url(../../../images/heard.svg);
   height: 19px;
   width: 22px;
-  background-size: cover;
-  background-color: #fff;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
   opacity: 1;
   transition-property: opasity;
   transition-duration: 1s;
   transition-timing-function: linear;
   transition-delay: 2s;
+
 }
   
 .photo-card__description-like:hover {
@@ -18,6 +20,6 @@
 }
 
 
-.photo-card__description-like:active {
+.photo-card__description-like_active {
   background-image: url(../../../images/heart_black.svg);
 }

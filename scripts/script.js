@@ -65,14 +65,12 @@ function createNewPlace(name, link) {
   imgPopup.alt = ` Картинка города: ${name}`;
   imgPopup.src = link;
   photoCardElement.querySelector('.photo-card__description-text').textContent = name;
-
   //попап zoom картинку
   const popupPicture = document.querySelector('.popup_images');
     imgPopup.addEventListener('click', (evt) => {
       openPopup(popupPicture);
       addImage(evt, name);
     });
- 
   const likeButton = photoCardElement.querySelector('.photo-card__description-like');
   //нажатие на лайк
   likeButton.addEventListener('click', evt => {

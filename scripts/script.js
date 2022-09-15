@@ -21,7 +21,7 @@ const formNewPlace = popupIntro.querySelector('.form_newPlace');
 const closenewPlace = popupIntro.querySelector('.popup__closeIcon_newPlace');
 
 //попап с большой картинкой и подписью
-const popupPicture = document.querySelector('.popup_images');
+const popupPicture = document.querySelector('.popup_popup-images');
 const closeImage = popupPicture.querySelector('.popup__closeIcon_images');
 
 //унив функция закрытия и открытия попапа
@@ -66,7 +66,7 @@ function createNewPlace(name, link) {
   imgPopup.src = link;
   photoCardElement.querySelector('.photo-card__description-text').textContent = name;
   //попап zoom картинку
-  const popupPicture = document.querySelector('.popup_images');
+  const popupPicture = document.querySelector('.popup_popup-images');
     imgPopup.addEventListener('click', (evt) => {
       openPopup(popupPicture);
       addImage(evt, name);
@@ -89,13 +89,13 @@ function createNewPlace(name, link) {
 
 // функция заполняющая попап картинкой
 function addImage (evt, name) {
-  const pictureCaption = popupPicture.querySelector('.popup_images_pictureCaption');
+  const pictureCaption = popupPicture.querySelector('.popup-images__pictureCaption');
   pictureCaption.textContent = name;
 
-  const pictureCaptionАlt = popupPicture.querySelector('.popup_images_picture');
+  const pictureCaptionАlt = popupPicture.querySelector('.popup-images__picture');
   pictureCaptionАlt.alt = evt.target.alt;
     
-  const picture = popupPicture.querySelector('.popup_images_picture');
+  const picture = popupPicture.querySelector('.popup-images__picture');
   picture.src = evt.target.src;
   };
 

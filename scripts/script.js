@@ -58,27 +58,27 @@ const initialCards = [
 
   //универсальная функция, клонирование блока и добавл значений 
 function createNewPlace(name, link) {
-  //делаем дубликат карточки
+  //дублируем карточки
   const photoCardElement = photoCardTemplate.querySelector('.photo-card').cloneNode(true);
-  //достаем елемент картинка карточки
   const imgPopup = photoCardElement.querySelector('.photo-card__picture');
-  //заполняем карточку значениями
+  //карточки добоавляем картинку, имя, альт
   imgPopup.alt = ` Картинка города: ${name}`;
   imgPopup.src = link;
   photoCardElement.querySelector('.photo-card__description-text').textContent = name;
 
-  //добавляем слушатель для открытия попапа увеличенной картинки
+  //попап zoom картинку
   const popupPicture = document.querySelector('.popup_images');
     imgPopup.addEventListener('click', (evt) => {
       openPopup(popupPicture);
       addImage(evt, name);
     });
-  //ищем елемент кнопка like
+ 
   const likeButton = photoCardElement.querySelector('.photo-card__description-like');
-  //добавляем слушатель нажатия like
+  //нажатие на лайк
   likeButton.addEventListener('click', evt => {
     evt.target.classList.toggle('photo-card__description-like_active'); 
   });
+  //мусорка
   const wasteBasket = photoCardElement.querySelectorAll('.photo-card__wasteBasket');
   wasteBasket.forEach(result => {
     result.addEventListener('click', () => {
@@ -91,9 +91,6 @@ function createNewPlace(name, link) {
 
 // функция заполняющая попап картинкой
 function addImage (evt, name) {
-  // в функции используешь evt.target (получаешь полный элемент картинки с alt и src)
-  // достаешь из элемента картинки и alt и src
-  // отдаешь значение alt из элемента картинка - альту из элемента попап
   const pictureCaption = popupPicture.querySelector('.popup_images_pictureCaption');
   pictureCaption.textContent = name;
 

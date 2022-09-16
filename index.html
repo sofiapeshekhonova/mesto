@@ -30,45 +30,46 @@
     <footer class="footer">
       <p class="footer__signature">© 2020 Mesto Russia</p>
     </footer>
-    <section class="popup popup_profile">
+    <section class="popup popup_type_profile">
       <div class="popup__container">
-        <button class="popup__closeIcon popup__closeIcon_profile links" type="button"></button>
+        <button class="popup__close-icon popup__close-icon_type_profile links" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="form form_profile" name="profileForm">
+        <form class="form form_type_profile" name="profile-form">
           <input type="text" class="form__text form__text_type_name" name="Name" placeholder="введите имя">
           <input type="text" class="form__text form__text_type_job" name="Job" placeholder="введите работу">
         <button class="form__save" type="submit">Сохранить</button>
         </form>
       </div>
     </section>
-    <section class="popup popup_newPlace">
+    <section class="popup popup_type_place">
       <div class="popup__container">
-        <button class="popup__closeIcon popup__closeIcon_newPlace links"  type="button"></button>
+        <button class="popup__close-icon popup__close-icon_type_place links"  type="button"></button>
         <h2 class="popup__title">Новое место</h2>
-        <form class="form form_newPlace" name="placeForm">
-          <input type="text" class="form__text form__text_type_placeName" name="placeName" placeholder="Название">
-          <input type="text" class="form__text form__text_type_placeLink" name="placeLink" placeholder="Ссылка на картинку">
+        <form class="form form_type_place" name="place-form">
+          <input type="text" class="form__text form__text_type_place-name" name="placeName" placeholder="Название">
+          <input type="text" class="form__text form__text_type_place-link" name="placeLink" placeholder="Ссылка на картинку">
         <button class="form__save" type="submit">Сохранить</button>
         </form>
       </div>
     </section>
-    <section class="popup popup_images" aria-label="всплывающее акно с картинкой">
+    <section class="popup popup_type_images" aria-label="всплывающее акно с картинкой">
       <figure class="popup__container-images">
-        <button class="popup__closeIcon popup__closeIcon_images links" type="button"></button>
-        <img class="popup__picture">
-          <figcaption class="popup__pictureCaption"></figcaption>
+        <button class="popup__close-icon popup__close-icon_type_images links" type="button"></button>
+        <img class="popup__picture" alt="" src="">
+          <figcaption class="popup__picture-caption"></figcaption>
       </figure>
   </section>
     <template class="photo-cards">
       <li class="photo-card">
-     <img class="photo-card__picture">
-      <div class="photo-card__description">
-        <h2 class="photo-card__description-text"></h2>
-        <button class="photo-card__description-like" type="button"></button>
-      </div>
-      <button class="photo-card__wasteBasket links" type="button"></button>
-    </li>
-  </template>
-    <script src="./scripts/script.js"></script> 
+        <img class="photo-card__picture">
+        <div class="photo-card__description">
+          <h2 class="photo-card__description-text"></h2>
+          <button class="photo-card__description-like" type="button"></button>
+        </div>
+        <button class="photo-card__wastebasket links" type="button"></button>
+      </li>
+    </template>
+    <script src="./scripts/initialCards.js"></script>
+    <script src="./scripts/index.js"></script> 
   </body>
 </html>

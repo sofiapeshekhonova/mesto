@@ -36,7 +36,7 @@
 @import url(../blocks/photo-card/__description/photo-card__description.css);
 @import url(../blocks/photo-card/__description-text/photo-card__description-text.css);
 @import url(../blocks/photo-card/__description-like/photo-card__description-like.css);
-@import url(../blocks/photo-card/__wastebasket/photo-card__wastebasket.css);
+@import url(../blocks/photo-card/__wasteBasket/photo-card__wasteBasket.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__signature/footer__signature.css);

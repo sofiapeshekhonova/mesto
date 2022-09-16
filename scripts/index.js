@@ -57,13 +57,10 @@ function createNewPlace(name, link) {
             const cartItem = event.target.closest('.photo-card');
             cartItem.remove();
         });
-
 return photoCardElement
   // photoCardsContainer.prepend(photoCardElement);
 };
-function render(createNewPlace) {
-	initialCards.forEach(renderItem);
-}
+
 // // добавление карточек через массив
 // initialCards.forEach(element => createNewPlace(element.name, element.link));
 

@@ -20,11 +20,9 @@ const popupIntro = document.querySelector('.popup_type_place');
 const formNewPlace = popupIntro.querySelector('.form_type_place');
 const closenewPlace = popupIntro.querySelector('.popup__close-icon_type_place');
 
-//попап с большой картинкой и подписью
+//попап с всплыв картинкой и подписью
 const popupPicture = document.querySelector('.popup_type_images');
 const closeImage = popupPicture.querySelector('.popup__close-icon_type_images');
-
-//попап с всплыв картинкой
 const pictureCaption = popupPicture.querySelector('.popup__picture-caption');
 const picture = popupPicture.querySelector('.popup__picture');
 
@@ -33,18 +31,19 @@ const openPopup = (popup) => popup.classList.add('popup_opened');
 const closePopup = (popup) => popup.classList.remove('popup_opened');
  
   //универсальная функция, клонирование блока и добавл значений 
-function createNewPlace(name, link) {
+function createNewPlace(placeCard) {
   //дублируем карточки
   const photoCardElement = photoCardTemplate.querySelector('.photo-card').cloneNode(true);
   const imgPopup = photoCardElement.querySelector('.photo-card__picture');
   //карточки добоавляем картинку, имя, альт
-  imgPopup.alt = ` Картинка города: ${name}`;
-  imgPopup.src = link;
-  photoCardElement.querySelector('.photo-card__description-text').textContent = name;
+  imgPopup.alt = ` Картинка города: ${placeCard.name}`;
+  imgPopup.src = placeCard.link;
+  descriptionPopup = photoCardElement.querySelector('.photo-card__description-text');
+  descriptionPopup.textContent = placeCard.name;
   //попап zoom картинку
     imgPopup.addEventListener('click', (evt) => {
       openPopup(popupPicture);
-      addImage(evt, name);
+      addImage(evt, placeCard.name);
     });
   const likeButton = photoCardElement.querySelector('.photo-card__description-like');
   //нажатие на лайк
@@ -58,28 +57,37 @@ function createNewPlace(name, link) {
             cartItem.remove();
         });
 return photoCardElement
-  // photoCardsContainer.prepend(photoCardElement);
 };
 
-// // добавление карточек через массив
-// initialCards.forEach(element => createNewPlace(element.name, element.link));
-
-initialCards.forEach((element) => {
-  const photoCardElement = createNewPlace(element.name, element.link);
-  photoCardsContainer.prepend(photoCardElement);
+// // добавление карточек через массив (изначально на странице)
+initialCards.forEach(element => {photoCardsContainer.prepend(createNewPlace(element));
 });
 
-// функция заполняющая попап картинкой
+//добавление в форму(для создание новой карточки) значений
+formNewPlace.addEventListener('submit', (evt) => {
+  evt.preventDefault(); 
+  const placeName = formNewPlace.querySelector('.form__text_type_place-name');
+  const placeImage = formNewPlace.querySelector('.form__text_type_place-link');
+  const formValue = {
+    name: placeName.value,
+    link: placeImage.value,
+  }
+  photoCardsContainer.prepend(createNewPlace(formValue));
+  evt.target.reset(); 
+  closePopup(popupIntro);
+});
+
+//попап открывает попап для создания карточки с местом+картинка
+openIntoPopup.addEventListener('click', event => {
+  openPopup(popupIntro);
+});
+
+// функция заполняющая попап c zoom картинкой - значениями 
 function addImage (evt, name) {
   pictureCaption.textContent = name;
   pictureCaption.alt = evt.target.alt; 
   picture.src = evt.target.src;
   };
-  
-//попап открывает попап для создания карточки с местом+картинка
-openIntoPopup.addEventListener('click', event => {
-  openPopup(popupIntro);
-});
 
 //открытие попапа с информацией о профиле 
 openProfilePopup.addEventListener('click', event => {
@@ -88,18 +96,7 @@ openProfilePopup.addEventListener('click', event => {
   jobInput.value = profileJob.textContent;
 });
 
-closeProfile.addEventListener('click', event => {
-  closePopup(popupProfile);
-});
-
-closeImage.addEventListener('click', evt => {
-  closePopup(popupPicture);
-});
-
-closenewPlace.addEventListener('click', evt => {
-  closePopup(popupIntro);
-});
-
+//добавление в форму информации о профиле
 formProfile.addEventListener('submit', evt => {
   evt.preventDefault(); 
   const nameValue = nameInput.value; 
@@ -109,13 +106,15 @@ formProfile.addEventListener('submit', evt => {
   closePopup(popupProfile);
 });
 
-// добавление созданной карточки при нажатии 
-formNewPlace.addEventListener('submit', (evt) => {
-  evt.preventDefault(); 
-  const name = formNewPlace.querySelector('.form__text_type_place-name');
-  const link = formNewPlace.querySelector('.form__text_type_place-link');
-  const photoCardElement =  createNewPlace(name.value, link.value);
-  evt.target.reset(); 
-  photoCardsContainer.prepend(photoCardElement);
+//функции закрывающие разные попапы 
+closeProfile.addEventListener('click', event => {
+  closePopup(popupProfile);
+});
+
+closeImage.addEventListener('click', evt => {
+  closePopup(popupPicture);
+});
+
+closenewPlace.addEventListener('click', evt => {
   closePopup(popupIntro);
 });

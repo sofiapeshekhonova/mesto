@@ -7,10 +7,7 @@
   background-repeat: no-repeat;
   background-color: transparent;
   opacity: 1;
-  transition-property: opasity;
-  transition-duration: 1s;
-  transition-timing-function: linear;
-  transition-delay: 2s;
+  transition: opacity .1s linear;
 }
   
 .photo-card__description-like:hover {

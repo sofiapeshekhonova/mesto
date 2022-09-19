@@ -7,11 +7,10 @@
   background-repeat: no-repeat;
   background-color: transparent;
   opacity: 1;
-/*   transition-property: opacity;
+  transition-property: opasity;
   transition-duration: 1s;
   transition-timing-function: linear;
-  transition-delay: 2s; */
-  transition: opacity .2s linear;
+  transition-delay: 2s;
 }
   
 .photo-card__description-like:hover {

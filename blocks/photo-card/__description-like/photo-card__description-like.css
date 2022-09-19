@@ -7,11 +7,11 @@
   background-repeat: no-repeat;
   background-color: transparent;
   opacity: 1;
-  transition-property: opacity;
+/*   transition-property: opacity;
   transition-duration: 1s;
   transition-timing-function: linear;
-  transition-delay: 2s;
-
+  transition-delay: 2s; */
+  transition: opacity .2s linear;
 }
   
 .photo-card__description-like:hover {
@@ -27,4 +27,5 @@
 
 .photo-card__description-like_active {
   background-image: url(../../../images/heart_black.svg);
+  opacity: 1;
 }

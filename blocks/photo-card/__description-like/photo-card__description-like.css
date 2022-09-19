@@ -3,12 +3,11 @@
   background-image: url(../../../images/heard.svg);
   height: 19px;
   width: 22px;
-  background-size: contain;
   background-repeat: no-repeat;
   background-color: transparent;
-  opacity: 1;
   transition: opacity .1s linear;
   padding: 0;
+  margin: 0;
 }
   
 .photo-card__description-like:hover {

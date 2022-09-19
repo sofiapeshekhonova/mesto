@@ -7,25 +7,24 @@
   background-repeat: no-repeat;
   background-color: transparent;
   opacity: 1;
-  transition: opacity .2s linear;
+  transition-property: opacity;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  transition-delay: 2s;
+
+}
+  
+.photo-card__description-like:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 
-@media (any-hover: hover) {
+@media screen and (max-width: 768px) {
   .photo-card__description-like:hover {
-    cursor: pointer;
-    opacity: .5;
+    opacity: 1;
   }
 }
 
 .photo-card__description-like_active {
   background-image: url(../../../images/heart_black.svg);
-  opacity: 1;
 }
-
-/* @media (any-hover: hover) {
-  .photo-card__description-like {
-    cursor: pointer;
-    opacity: .5;
-  }
-} */
-

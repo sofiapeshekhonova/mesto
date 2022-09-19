@@ -13,20 +13,14 @@
   transition-delay: 2s;
 
 }
-  
-.photo-card__description-like:hover {
+
+/* .photo-card__description-like:hover {
   opacity: 0.5;
   cursor: pointer;
 }
-
-/* @media screen and(max-width: 768px) {
-  .photo-card__description-like:hover {
-    opacity: 1;
-  }
-} */
-
+ */
 @media (any-hover: hover) {
-  .elements__like-button:hover {
+  .photo-card__description-like {
     cursor: pointer;
     opacity: .5;
   }
@@ -34,5 +28,5 @@
 
 .photo-card__description-like_active {
   background-image: url(../../../images/heart_black.svg);
-  
+  opacity:1
 }

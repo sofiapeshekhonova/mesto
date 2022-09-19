@@ -2,12 +2,9 @@
   border:none;
   background-image: url(../../../images/heard.svg);
   height: 19px;
-  width: 22px;
-  background-repeat: no-repeat;
+  min-width: 22px;
   background-color: transparent;
   transition: .2s linear;
-  padding: 0;
-  margin: 0;
 }
   
 .photo-card__description-like:hover {

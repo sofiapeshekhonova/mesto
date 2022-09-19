@@ -8,6 +8,7 @@
   background-color: transparent;
   opacity: 1;
   transition: opacity .1s linear;
+  padding: 0;
 }
   
 .photo-card__description-like:hover {

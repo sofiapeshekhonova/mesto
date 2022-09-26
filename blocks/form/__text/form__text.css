@@ -16,6 +16,6 @@
 }
 
 .form__text:focus-visible {
-  outline: 3px solid blue;
+  outline: 1px solid blue;
   padding: 4px 0 4px 4px;
 }

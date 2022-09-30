@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="distribution" content="global">
-    <meta name="description" content="написать">
+    <meta name="description" content="Учебный проект Яндекс практикум - Mesto">
     <title>Mesto</title>
     <link rel="stylesheet" href="./pages/index.css">
   </head>
@@ -30,25 +30,31 @@
     <footer class="footer">
       <p class="footer__signature">© 2020 Mesto Russia</p>
     </footer>
+    
     <section class="popup popup_type_profile">
       <div class="popup__container">
         <button class="popup__close-icon popup__close-icon_type_profile links" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="form form_type_profile" name="profile-form">
-            <input id="name-input" type="text" class="form__text form__text_type_name" name="Name" placeholder="введите имя">
-            <input id="job-input" type="text" class="form__text form__text_type_job" name="Job" placeholder="введите работу">
+        <form class="form form_type_profile" name="profile-form" novalidate>
+          <input id="name-input" type="text" class="form__text form__text_type_name" value="Введите имя" name="Name" placeholder="введите имя" required minlength="2" maxlength="40">
+          <span class="form__text-error name-input-error"></span>
+          <input id="job-input" type="text" class="form__text form__text_type_job" value="Работа" name="Job" placeholder="введите работу" required minlength="2" maxlength="200">
+          <span class="form__text-error job-input-error"></span>
           <button class="form__save" type="submit">Сохранить</button>
         </form>
       </div>
     </section>
+
     <section class="popup popup_type_place">
       <div class="popup__container">
         <button class="popup__close-icon popup__close-icon_type_place links"  type="button"></button>
         <h2 class="popup__title">Новое место</h2>
-        <form class="form form_type_place" name="place-form">
-          <input type="text" class="form__text form__text_type_place-name" name="placeName" placeholder="Название">
-          <input type="text" class="form__text form__text_type_place-link" name="placeLink" placeholder="Ссылка на картинку">
-        <button class="form__save" type="submit">Сохранить</button>
+        <form class="form form_type_place" name="place-form" novalidate>
+            <input id="place-name-input" type="text" class="form__text form__text_type_place-name" name="placeName" placeholder="Название"  required minlength="2" maxlength="30">
+            <span class="form__text-error place-name-input-error"></span>
+            <input id="place-link-input" type="url" class="form__text form__text_type_place-link" name="placeLink" placeholder="Ссылка на картинку" required>
+            <span class="form__text-error place-link-input-error"></span>
+          <button class="form__save" type="submit">Сохранить</button>
         </form>
       </div>
     </section>
@@ -70,6 +76,7 @@
       </li>
     </template>
     <script src="./scripts/initialCards.js"></script>
+    <script src="./scripts/enableValidation.js"></script>
     <script src="./scripts/index.js"></script> 
   </body>
 </html>

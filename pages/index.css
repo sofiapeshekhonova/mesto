@@ -26,7 +26,6 @@
 @import url(../blocks/form/__text/form__text.css);
 @import url(../blocks/form/__text/_type/_error/form__text_type_arror.css);
 @import url(../blocks/form/__text-error/form__text-error.css);
-@import url(../blocks/form/__text-error/_active/form__text-error_active.css);
 @import url(../blocks/form/__save/form__save.css);
 @import url(../blocks/form/__save/_inactive/form__save_inactive.css);
 

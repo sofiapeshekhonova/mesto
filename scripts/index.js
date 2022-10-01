@@ -1,9 +1,10 @@
 const profile = document.querySelector('.intro')
 const profileName = profile.querySelector('.profile__information-name');
 const profileJob = profile.querySelector('.profile__information-job');
-const openProfilePopup = profile.querySelector('.profile__information-button');
-const openIntoPopup = profile.querySelector('.intro__button');
+const buttonOpenEditProfilePopup = profile.querySelector('.profile__information-button');
+const buttonOpenAddCardPopup = profile.querySelector('.intro__button');
 
+const allPopups = document.querySelectorAll('.popup');
 // относится к попапку с профилем
 const popupProfile = document.querySelector('.popup_type_profile');
 const formProfile = popupProfile.querySelector('.form_type_profile');
@@ -16,9 +17,9 @@ const photoCardsContainer = document.querySelector('.photo-cards-container')
 const photoCardTemplate = document.querySelector('.photo-cards').content;
 
 //кнопки относятся к попап  создание карточки место+картинка
-const popupIntro = document.querySelector('.popup_type_place');
-const formNewPlace = popupIntro.querySelector('.form_type_place');
-const closenewPlace = popupIntro.querySelector('.popup__close-icon_type_place');
+const popupAddCard = document.querySelector('.popup_type_place');
+const formNewPlace = popupAddCard.querySelector('.form_type_place');
+const closenewPlace = popupAddCard.querySelector('.popup__close-icon_type_place');
 
 //попап с всплыв картинкой и подписью
 const popupPicture = document.querySelector('.popup_type_images');
@@ -27,23 +28,46 @@ const pictureCaption = popupPicture.querySelector('.popup__picture-caption');
 const picture = popupPicture.querySelector('.popup__picture');
 
 //унив функция закрытия и открытия попапа
-const openPopup = (popup) => popup.classList.add('popup_opened');
-const closePopup = (popup) => popup.classList.remove('popup_opened');
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeOnButtonEscape);
+  document.addEventListener('mousedown', closeifmousedown);
+}
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeOnButtonEscape);
+  document.removeEventListener('mousedown', closeifmousedown);
+} 
 
-//ошибка выскакивающая
+function closeOnButtonEscape(evt) {
+  if (evt.key === 'Escape') {
+    allPopups.forEach(popup => closePopup(popup));
+  }
+}
+
+function closeifmousedown(evt) {
+  if (evt.target === popupAddCard || popupPicture || popupProfile ) {
+    allPopups.forEach(popup => closePopup(popup));
+  }
+}
+
+// //ошибка выскакивающая
 const mistake = document.querySelectorAll('.form__text-error');
+
+const inputPlaceName = document.querySelector('.form__text_type_place-name');
+const inputPlaceLink = document.querySelector('.form__text_type_place-link');
 
   //универсальная функция, клонирование блока и добавл значений 
 function createNewPlace(placeCard) {
   //дублируем карточки
   const photoCardElement = photoCardTemplate.cloneNode(true);
+  const imgPopup = photoCardElement.querySelector('.photo-card__picture'); 
 
-  photoCardElement.querySelector('.photo-card__picture').src = placeCard.link;
-  photoCardElement.querySelector('.photo-card__picture').alt = ` Картинка города: ${placeCard.name}`;
+  imgPopup.src = placeCard.link; 
+  imgPopup.alt = placeCard.name; 
   photoCardElement.querySelector('.photo-card__description-text').textContent = placeCard.name;
 
-  const imgPopup = photoCardElement.querySelector('.photo-card__picture');
-  imgPopup.addEventListener('click', (evt) => { addImage(evt, placeCard.name); });
+  // imgPopup.addEventListener('click', (evt) => { openImagePopup(evt, placeCard.name); });
   
   setListenersForItem(photoCardElement);
 
@@ -58,16 +82,16 @@ function setListenersForItem(element) {
   const likeButton = element.querySelector('.photo-card__description-like');
   likeButton.addEventListener('click', clickLike);
 
-  // element.querySelector('.photo-card__picture').addEventListener('click', addImage);
+  element.querySelector('.photo-card__picture').addEventListener('click', openImagePopup);
 }
 
 // функция заполняющая попап c zoom картинкой - значениями 
-function addImage (evt, name) {
+function openImagePopup (evt, name) {
   openPopup(popupPicture);
   picture.src = evt.target.src;
   picture.alt = evt.target.alt; 
-  pictureCaption.textContent = name;
-  // pictureCaption.textContent = evt.target.alt;
+  // pictureCaption.textContent = name;
+  pictureCaption.textContent = evt.target.alt;
   };
 
 
@@ -86,30 +110,29 @@ function deletePicture(event) {
   cartItem.remove();
 }
 
+
 //добавление в форму(для создание новой карточки) значений
 formNewPlace.addEventListener('submit', (evt) => {
   evt.preventDefault(); 
-  const placeName = formNewPlace.querySelector('.form__text_type_place-name');
-  const placeImage = formNewPlace.querySelector('.form__text_type_place-link');
   const formValue = {
-    name: placeName.value,
-    link: placeImage.value,
+    name: inputPlaceName.value,
+    link: inputPlaceLink.value,
   }
   photoCardsContainer.prepend(createNewPlace(formValue));
   evt.target.reset(); 
-  closePopup(popupIntro);
+  closePopup(popupAddCard);
 });
 
-const saveForm = popupIntro.querySelector('.form__save');
+const buttonSubmitAddCardPopup = popupAddCard.querySelector('.form__save');
 //попап открывает попап для создания карточки с местом+картинка
-openIntoPopup.addEventListener('click', event => {
-  openPopup(popupIntro);
-  makeDisableButton(saveForm);
+buttonOpenAddCardPopup.addEventListener('click', event => {
+  openPopup(popupAddCard);
+  makeDisableButton(buttonSubmitAddCardPopup);
   formNewPlace.reset();
 });
 
 //открытие попапа с информацией о профиле 
-openProfilePopup.addEventListener('click', event => {
+buttonOpenEditProfilePopup.addEventListener('click', event => {
   openPopup(popupProfile);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
@@ -135,31 +158,10 @@ closeImage.addEventListener('click', evt => {
 });
 
 closenewPlace.addEventListener('click', evt => {
-  closePopup(popupIntro);
+  closePopup(popupAddCard);
   disableErrorMessages();
 });
 
 function disableErrorMessages() {
   mistake.forEach(e => e.textContent = "");
 }
-
-document.addEventListener('mousedown', evt => {
-  if ( evt.target == popupIntro) {
-   closePopup(popupIntro);
-}
-else if (evt.target == popupProfile) {
- closePopup(popupProfile);
-}
-else if (evt.target == popupPicture) {
- closePopup(popupPicture);
-}
-});
-
-document.addEventListener('keydown', evt => {
-if  (evt.key === 'Escape')  {
-closePopup(popupIntro);
-closePopup(popupPicture);
-closePopup(popupProfile);
-}
-});
-

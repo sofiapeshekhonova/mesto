@@ -31,12 +31,10 @@ const picture = popupPicture.querySelector('.popup__picture');
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closeOnButtonEscape);
-  document.addEventListener('mousedown', closeifmousedown);
 }
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeOnButtonEscape);
-  document.removeEventListener('mousedown', closeifmousedown);
 } 
 
 function closeOnButtonEscape(evt) {
@@ -45,11 +43,22 @@ function closeOnButtonEscape(evt) {
   }
 }
 
-function closeifmousedown(evt) {
-  if (evt.target === popupAddCard || popupPicture || popupProfile ) {
-    allPopups.forEach(popup => closePopup(popup));
-  }
-}
+// allPopups.forEach(popup => {
+//   popup.addEventListener('mousedown', evt => {
+//     if (evt.target === popup || evt.target.classList.contains('.popup_close-icon')){
+//       closePopup (popup)
+//     }
+//   });
+// });
+
+//среди всех попапов, если есть ли у evt.target класс popup открыт или popup_close-icon и только тогда закрывать попап
+allPopups.forEach(popup => {
+  popup.addEventListener('mousedown', evt => {
+    if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('.popup_close-icon')) {
+      closePopup(popup);
+    }
+  });
+});
 
 // //ошибка выскакивающая
 const mistake = document.querySelectorAll('.form__text-error');

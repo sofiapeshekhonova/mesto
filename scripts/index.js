@@ -38,18 +38,13 @@ function closePopup(popup) {
 } 
 
 function closeOnButtonEscape(evt) {
-  if (evt.key === 'Escape') {
-    allPopups.forEach(popup => closePopup(popup));
+  if (evt.key === 'Escape') {  
+    const popupOpened = document.querySelector('.popup_opened');
+    closePopup(popupOpened)
+      // if (evt.key === 'Escape' && evt.target.classList.contains('popup_opened')) {  
+        // allPopups.forEach(popup => closePopup(popup));
   }
 }
-
-// allPopups.forEach(popup => {
-//   popup.addEventListener('mousedown', evt => {
-//     if (evt.target === popup || evt.target.classList.contains('.popup_close-icon')){
-//       closePopup (popup)
-//     }
-//   });
-// });
 
 //среди всех попапов, если есть ли у evt.target класс popup открыт или popup_close-icon и только тогда закрывать попап
 allPopups.forEach(popup => {

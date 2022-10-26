@@ -56,7 +56,7 @@ export default class Card {
     return this._element;
   }
 
-   _handleCardLike(event) {
+   _handleCardLike() {
     this._element.querySelector('.photo-card__description-like').classList.toggle('photo-card__description-like_active');
   }
 
@@ -68,7 +68,6 @@ export default class Card {
 
   _handleDeleteCard() {
       this._element.remove();
-      // this._element = null;
   }
 
   _setEventListeners() {

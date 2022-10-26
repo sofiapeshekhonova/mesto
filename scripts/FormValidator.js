@@ -84,5 +84,4 @@ export default class FormValidator {
   // Очистим ошибку
     this._formError.textContent = '';
   };
-
 }

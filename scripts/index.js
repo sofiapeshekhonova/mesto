@@ -51,7 +51,7 @@ cardValidator.enableValidation();
 
 initialCards.forEach((item) => {
   // Создадим экземпляр карточки
- const card = new Card(item, '.photo-cards_type_default');
+ const card = new Card(item, '.photo-cards');
  // Создаём карточку и возвращаем наружу
  const cardElement = card.generateCard();
 // Добавляем в DOM
@@ -145,20 +145,3 @@ function disableErrorMessages() {
   mistake.forEach(e => e.textContent = "");
   mistakeLine.forEach(e => e.classList.remove('form__text_type_error'));
 }
-
-
-
-
-// // сброс формы
-// function resetForm(p) {
-//   // очистка инпутов
-//     p.querySelector('.popup__form').reset();
-//   // удаление ошибки
-//     p.querySelectorAll('.form__text-error').forEach(spanError =>{
-//       spanError.textContent='';
-//     })
-//   // удаление стиля ошибки
-//     p.querySelectorAll('.popup__input').forEach(inputElement =>{
-//       inputElement.classList.remove('popup__input_type_error');
-//     })
-// };

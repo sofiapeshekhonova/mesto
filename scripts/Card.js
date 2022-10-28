@@ -19,14 +19,14 @@ export default class Card {
   generateCard() {
     // Запишем разметку в приватное поле _element. Так у других элементов появится доступ к ней.
     this._element = this._getTemplate();
-
+    this._CardPicture = this._element.querySelector(".photo-card__picture");
     // Добавим данные
-    this._element.querySelector(".photo-card__picture").src = this._link;
+    this._CardPicture .src = this._link;
     this._element.querySelector(".photo-card__description-text").textContent = this._name;
-    this._element.querySelector(".photo-card__picture").alt = this._name;
+    this._CardPicture .alt = this._name;
 
-    this._likeButton =  this._element.querySelector(".photo-card__description-like");
-    this._wasteBasketButton= this._element.querySelector(".photo-card__wastebasket");
+    this._likeButton = this._element.querySelector(".photo-card__description-like");
+    this._wasteBasketButton = this._element.querySelector(".photo-card__wastebasket");
     this._setEventListeners();
 
     return this._element;
@@ -47,7 +47,7 @@ export default class Card {
       this._wasteBasketButton.addEventListener("click", () => {
         this._handleDeleteCard();
       });
-    this._element.querySelector(".photo-card__picture").addEventListener("click", () => {
+    this._CardPicture .addEventListener("click", () => {
         this._handleOpenPopup(this._name, this._link);
       });
   }

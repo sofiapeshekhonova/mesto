@@ -21,7 +21,7 @@ export default class FormValidator {
     this._setEventListeners();
   }
 
-  __toggleInputErrorState(textInput) {
+  _toggleInputErrorState(textInput) {
     if (!textInput.validity.valid) {
       // Если поле не проходит валидацию, покажем ошибку + 2- сообщение об ошибке
       this._showInputError(textInput, textInput.validationMessage);
@@ -33,23 +33,23 @@ export default class FormValidator {
 
   _setEventListeners() {
     // чтобы была заблокированна в самом начале
-    this._changeShapeButton();
+    this._changeButtonState();
     // Обойдём все элементы полученной коллекции
     this._inputList.forEach((textInput) => {
       // каждому полю добавим обработчик события input
       textInput.addEventListener("input", () => {
         // Внутри колбэка вызовем _toggleInputErrorState передав ей проверяемый элемент
-        this.__toggleInputErrorState(textInput);
+        this._toggleInputErrorState(textInput);
         //заблок кнопка
-        this._changeShapeButton();
+        this._changeButtonState();
       });
     });
   }
 
-  _changeShapeButton() {
+  _changeButtonState() {
     if (this._hasFalseInput(this._inputList)) {
       // сделай кнопку неактивной
-      this._makeDisableButton(this._buttonElement);
+      this.makeDisableButton(this._buttonElement);
     } else {
       // иначе сделай кнопку активной
       this._removeDisableButton(this._buttonElement);
@@ -65,7 +65,7 @@ export default class FormValidator {
     });
   }
 
-  _makeDisableButton() {
+  makeDisableButton() {
     this._buttonElement.classList.add(this._inactiveButtonClass); //добавляем класс неактивной копки
     this._buttonElement.setAttribute("disabled", true); //делаем кнопку неактивной
   }
@@ -93,6 +93,6 @@ export default class FormValidator {
   }
 
   disableErrorMessages() {
-    this._inputList.forEach(e => this._hideInputError(e));
+    this._inputList.forEach(i => this._hideInputError(i));
   }
 }

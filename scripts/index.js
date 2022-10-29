@@ -65,6 +65,7 @@ buttonOpenAddCardPopup.addEventListener("click", (event) => {
   openPopup(popupAddCard);
   formNewCard.reset(); //сбрасываем текст в инпутах
   cardValidator.disableErrorMessages(); // сбрасываем валидацию (функция из класса)
+  cardValidator.makeDisableButton();
 });
 
 //создание карточки с местом+картинка

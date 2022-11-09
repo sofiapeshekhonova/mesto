@@ -10,3 +10,7 @@ Thumbs.db
 # Вспомогательные файлы
 *.log*
 node_modules/
+
+# package.json
+node_modules
+dist

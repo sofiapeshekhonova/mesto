@@ -8,13 +8,9 @@ export default class FormValidator {
     this._errorClass = data.errorClass;
     this._formElement = formElement;
     // Найдём все формы с указанным классом в DOM, сделаем из них массив методом Array.from
-    this._inputList = Array.from(
-      this._formElement.querySelectorAll(this._inputSelector)
-    );
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     //из нужной формы берем кнопку сохранить
-    this._buttonElement = this._formElement.querySelector(
-      this._submitButtonSelector //кнопка сохранить
-    );
+    this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
   }
 
   enableValidation() {

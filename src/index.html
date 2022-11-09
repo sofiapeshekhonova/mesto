@@ -6,16 +6,15 @@
     <meta name="distribution" content="global">
     <meta name="description" content="Учебный проект Яндекс практикум - Mesto">
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
     <header class="header">
-      <img class="header__logo" src="./images/Logo_mesto.svg" alt="логотип место россия">
+      <img class="header__logo" src="<%=require('./images/Logo_mesto.svg')%>" alt="логотип место россия">
     </header>
     <main class="content">
       <section class="intro">
         <div class="profile">
-          <img class ="profile__picture" src="./images/photo.jpg" alt="фото профиля">
+          <img class ="profile__picture" src="<%=require('./images/photo.jpg')%>" alt="фото профиля">
           <div class="profile__information">
             <h1 class="profile__information-name">Жак-Ив Кусто</h1>
             <button class="profile__information-button links" type="button" aria-label="редактировать профиль"></button>
@@ -75,6 +74,5 @@
         <button class="photo-card__wastebasket links" aria-label="удалить карточку" type="button"></button>
       </li>
     </template>
-    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>

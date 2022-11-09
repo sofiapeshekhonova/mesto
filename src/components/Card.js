@@ -1,9 +1,9 @@
 export default class Card {
-  constructor(data, templateSelector, handleOpenPopup) {
+  constructor(data, templateSelector, handleCardClick) {
     this._link = data.link;
     this._name = data.name;
     this._templateSelector = templateSelector;
-    this._handleOpenPopup = handleOpenPopup
+    this._handleCardClick = handleCardClick
   }
 
   _getTemplate() {
@@ -21,9 +21,9 @@ export default class Card {
     this._element = this._getTemplate();
     this._сardPicture = this._element.querySelector(".photo-card__picture");
     // Добавим данные
-    this._сardPicture .src = this._link;
+    this._сardPicture.src = this._link;
     this._element.querySelector(".photo-card__description-text").textContent = this._name;
-    this._сardPicture .alt = this._name;
+    this._сardPicture.alt = this._name;
 
     this._likeButton = this._element.querySelector(".photo-card__description-like");
     this._wasteBasketButton = this._element.querySelector(".photo-card__wastebasket");
@@ -43,12 +43,14 @@ export default class Card {
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
         this._handleCardLike();
-      });
-      this._wasteBasketButton.addEventListener("click", () => {
-        this._handleDeleteCard();
-      });
-    this._сardPicture .addEventListener("click", () => {
-        this._handleOpenPopup(this._name, this._link);
-      });
+    });
+    this._wasteBasketButton.addEventListener("click", () => {
+      this._handleDeleteCard();
+    });
+    this._сardPicture.addEventListener("click", () => {
+      this._handleCardClick(this._name, this._link);
+    });
   }
 }
+
+

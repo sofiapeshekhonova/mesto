@@ -3,16 +3,7 @@ import './index.css';
 import {
   initialCards,
   validationConfig,
-  popupAddCard,
-  formNewCard,
-  popupProfile,
-  formProfile,
-  nameInput,
-  jobInput,
-  buttonOpenAddCardPopup,
-  buttonOpenEditProfilePopup,
-  popupPicture,
-} from "../utils/constants.js";
+  } from "../utils/constants.js";
 
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -21,12 +12,32 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 
+//кнопки относятся к попап  создание карточки место+картинка
+const popupAddCard = document.querySelector(".popup_type_place");
+const formNewCard = popupAddCard.querySelector(".form_type_place");
+
+// относится к попапку с профилем
+const popupProfile = document.querySelector(".popup_type_profile");
+const formProfile = popupProfile.querySelector(".form_type_profile");
+const nameInput = formProfile.querySelector(".form__text_type_name");
+const jobInput = formProfile.querySelector(".form__text_type_job");
+
+const profile = document.querySelector(".intro");
+const buttonOpenAddCardPopup = profile.querySelector(".intro__button");
+const buttonOpenEditProfilePopup = profile.querySelector(".profile__information-button");
+
+//для всплыв окно с картинкой
+const popupPicture = document.querySelector(".popup_type_images");
+
 //добавляем значения из дом
 const userInformation = new UserInfo({
   name: ".profile__information-name",
   personalInformation: ".profile__information-job",
 });
-const addPopupPicture = new PopupWithImage(popupPicture);
+
+const popupProfileForm = new PopupWithForm(popupProfile, submitPopupProfile);
+const popupWithPicture = new PopupWithImage(popupPicture);
+const popupCard = new PopupWithForm(popupAddCard, submitProfileForm);
 
 // берем класс валидации, 1 параметром передаем классы форм, 2- форму профиля
 const profileValidator = new FormValidator(validationConfig, formProfile);
@@ -35,11 +46,9 @@ profileValidator.enableValidation(); //берем открыт функцию и
 const cardValidator = new FormValidator(validationConfig, formNewCard);
 cardValidator.enableValidation();
 
-const addPopupProfile = new PopupWithForm(popupProfile, submitPopupProfile);
-
 //открытие попапа с информацией о профиле
 buttonOpenEditProfilePopup.addEventListener("click", () => {
-  addPopupProfile.open();
+  popupProfileForm.open();
   const input = userInformation.getUserInfo();
   //value инпута формы = textcontent из функции getUserInfo в классе userInfo
   nameInput.value = input.name;
@@ -50,7 +59,7 @@ buttonOpenEditProfilePopup.addEventListener("click", () => {
 function submitPopupProfile(data) {
   //текстконтект инпутов на странице -  data(value инпута формы).Name( name="Name" из html)
   userInformation.setUserInfo(data.Name, data.Job);
-  addPopupProfile.close();
+  popupProfileForm.close();
 }
 
 function createCard(item) {
@@ -73,9 +82,8 @@ const cardList = new Section(
 );
 
 //функция из класса section, чтобы renderer заработал
-cardList.renderItems();
+cardList.renderItems(initialCards);
 
-const popupCard = new PopupWithForm(popupAddCard, submitProfileForm);
 //при клике на кнопку открывает попап для создания карточки с местом+картинка
 buttonOpenAddCardPopup.addEventListener("click", () => {
   popupCard.open();
@@ -95,9 +103,9 @@ function submitProfileForm(data) {
 
 //открываем попап с картинкой name и link берем из PopupWithImage
 function handleCardClick(name, link) {
-  addPopupPicture.open(name, link);
+  popupWithPicture.open(name, link);
 }
 
-addPopupPicture.setEventListeners();
+popupWithPicture.setEventListeners();
 popupCard.setEventListeners();
-addPopupProfile.setEventListeners();
+popupProfileForm.setEventListeners();

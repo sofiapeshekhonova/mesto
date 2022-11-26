@@ -7,6 +7,7 @@ export default class PopupWithForm extends Popup {  //Кроме селекто�
     // Найдём все инпуты формы, сделаем из них массив методом Array.from
     this._formInputs = Array.from(this._popup.querySelectorAll(".form__text"));
     this._popupForm = this._popup.querySelector(".form");
+    this._buttonSave = this._popup.querySelector('.form__save')
   }
 
   _getInputValues() {    //собирает данные всех полей формы.
@@ -15,6 +16,16 @@ export default class PopupWithForm extends Popup {  //Кроме селекто�
       this._formInputValues[input.name] = input.value;
     });
     return this._formInputValues;
+  }
+
+  renderLoading(isLoading) {
+    if(isLoading) {
+      this._buttonSave.textContent = 'Сохранение...'
+      //pictureAvatar.hidden = true;
+    } else {
+      this._buttonSave.textContent = 'Сохранить'
+     //pictureAvatar.hidden = false;
+    }
   }
 
   close() {

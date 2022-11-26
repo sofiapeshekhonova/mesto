@@ -14,7 +14,10 @@
     <main class="content">
       <section class="intro">
         <div class="profile">
-          <img class ="profile__picture" src="<%=require('./images/photo.jpg')%>" alt="фото профиля">
+          <div class="profile__picture">
+            <button class="profile__picture-button" type="button"></button>
+            <img class ="profile__picture-avatar" src="<%=require('./images/photo.jpg')%>" alt="фото профиля">
+          </div>
           <div class="profile__information">
             <h1 class="profile__information-name">Жак-Ив Кусто</h1>
             <button class="profile__information-button links" type="button" aria-label="редактировать профиль"></button>
@@ -44,6 +47,18 @@
       </div>
     </section>
 
+    <section class="popup popup_type_avatar">
+      <div class="popup__container">
+        <button class="popup__close-icon popup__close-icon_type_avatar links" aria-label="закрыть" type="button"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="form form_type_avatar" name="avatar-form" novalidate>
+          <input id="place-link-input" type="url" class="form__text form__text_type_avatar" name="avatar" placeholder="Ссылка на картинку" required>
+          <span class="form__text-error place-link-input-error"></span>
+          <button class="form__save" type="submit" aria-label="сохранить">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
     <section class="popup popup_type_place">
       <div class="popup__container">
         <button class="popup__close-icon popup__close-icon_type_place links" aria-label="закрыть" type="button"></button>
@@ -57,6 +72,17 @@
         </form>
       </div>
     </section>
+
+    <section class="popup popup_type_confirm">
+      <div class="popup__container">
+        <button class="popup__close-icon popup__close-icon_type_profile links" aria-label="закрыть" type="button"></button>
+        <h2 class="popup__title__confirm">Вы уверенны?</h2>
+        <form class="form" name="form" novalidate>
+          <button class="form__save" type="submit" aria-label="сохранить">Да</button>
+        </form>
+      </div>
+    </section>
+
     <section class="popup popup_type_images" aria-label="всплывающее акно с картинкой">
       <figure class="popup__container-images">
         <button class="popup__close-icon popup__close-icon_type_images links" aria-label="закрыть карточку" type="button"></button>
@@ -64,12 +90,16 @@
           <figcaption class="popup__picture-caption"></figcaption>
       </figure>
   </section>
+
     <template class="photo-cards">
       <li class="photo-card">
         <img class="photo-card__picture">
         <div class="photo-card__description">
           <h2 class="photo-card__description-text"></h2>
+          <div class="photo-card__description-likes">
           <button class="photo-card__description-like" aria-label="поставить лайк карточке" type="button"></button>
+          <p class="photo-card__description-like-counter"></p>
+        </div>
         </div>
         <button class="photo-card__wastebasket links" aria-label="удалить карточку" type="button"></button>
       </li>

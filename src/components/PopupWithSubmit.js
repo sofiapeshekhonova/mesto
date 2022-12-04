@@ -2,13 +2,13 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithSubmit extends Popup {  //Кроме селектора попапа принимает в конструктор колбэк сабмита формы.
-  constructor(popupSelector) {
-    super(popupSelector);
+  constructor(popup) {
+    super(popup);
     this._popupForm = this._popup.querySelector(".form");
   }
 
-  setSubmit(del){
-    this.submitForm = del;
+  setSubmit(handleDelete){
+    this.submitForm = handleDelete;
   }
 
   setEventListeners() { //обработчик сабмита формы.

@@ -1,6 +1,6 @@
 export default class Popup {  //отвечает за открытие и закрытие попапа
-  constructor(popupSelector) {     //принимает селектор попапа
-    this._popup = popupSelector;
+  constructor(popup) {
+    this._popup = popup;
   }
 
   open() {

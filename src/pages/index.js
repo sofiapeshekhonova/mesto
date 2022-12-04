@@ -15,11 +15,11 @@ import PopupWithSubmit from '../components/PopupWithSubmit';
 
 //кнопки относятся к попап  создание карточки место+картинка
 const popupAddCard = document.querySelector(".popup_type_place");
-const formNewCard = popupAddCard.querySelector(".form_type_place");
+const formNewCard = document.forms["place-form"];
 
 // относится к попапку с профилем
 const popupProfile = document.querySelector(".popup_type_profile");
-const formProfile = popupProfile.querySelector(".form_type_profile");
+const formProfile = document.forms["profile-form"];
 const nameInput = formProfile.querySelector(".form__text_type_name");
 const jobInput = formProfile.querySelector(".form__text_type_job");
 
@@ -35,13 +35,13 @@ const popupPicture = document.querySelector(".popup_type_images");
 //аватар
 const popupAvatar = document.querySelector('.popup_type_avatar');
 const buttonOpenPopupAvatar =  document.querySelector('.profile__picture-button')
-const formAvatar = document.querySelector('.form_type_avatar')
+const formAvatar = document.forms["avatar-form"];
 
 const popupProfileForm = new PopupWithForm(popupProfile, submitPopupProfile);
 const popupWithPicture = new PopupWithImage(popupPicture);
-const popupCard = new PopupWithForm(popupAddCard, submitpopupCard);
+const popupCard = new PopupWithForm(popupAddCard, submitPopupCard);
 const popupConfirm = new PopupWithSubmit(popupConfirmDelete);
-const popupAvatarForm = new PopupWithForm(popupAvatar, submitpopupAvatar);
+const popupAvatarForm = new PopupWithForm(popupAvatar, submitPopupAvatar);
 
 // берем класс валидации, 1 параметром передаем классы форм, 2- форму профиля
 const profileValidator = new FormValidator(validationConfig, formProfile);
@@ -68,14 +68,16 @@ const userInformation = new UserInfo({
   avatar: '.profile__picture-avatar'
 });
 
+
 let userId
-api.getUserInfos()
-  .then((user) => {
+Promise.all([api.getUserInfos(),api.getInitialCards()])
+  .then(([user, cards]) => {
     userId = user._id;
     userInformation.setUserInfo(user.name, user.about);
-    userInformation.setUserAvatar(user.avatar)
+    userInformation.setUserAvatar(user.avatar);
+    cardList.renderItems(cards); ////функция из класса section, чтобы renderer заработал
   })
-  .catch((err) => {
+  .catch(err => {
     console.log(err);
   });
 
@@ -86,9 +88,9 @@ buttonOpenPopupAvatar.addEventListener("click", () => {
   avatarValidator.makeDisableButton(); // меняем отображение кнопки  (функция из класса)
 });
 
-function submitpopupAvatar(value) {
+function submitPopupAvatar(value) {
   popupAvatarForm.renderLoading(true)
-  api.saveNewUseravatar(value.avatar)
+  api.saveNewUserAvatar(value.avatar)
   .then(user => {
    userInformation.setUserAvatar(user.avatar);
     popupAvatarForm.close()
@@ -179,21 +181,14 @@ const cardList = new Section(
   },".photo-cards-container"
 );
 
-//aпи + данные с сервера для кардс, после рендерим на страницу
-api.getInitialCards().then((cards) => {
-  cardList.renderItems(cards); //функция из класса section, чтобы renderer заработал
-}).catch((err) => {
-  console.log(err);
-});
-
 //при клике на кнопку открывает попап для создания карточки с местом+картинка
 buttonOpenAddCardPopup.addEventListener("click", () => {
-  popupCard.open();
+  popupCard.open()
   cardValidator.disableErrorMessages(); // сбрасываем валидацию (функция из класса)
   cardValidator.makeDisableButton(); // меняем отображение кнопки  (функция из класса)
 });
 
-function submitpopupCard(data) {
+function submitPopupCard(data) {
   //в данные сервера добавляем значения из инпутов формы
   popupCard.renderLoading(true)
   api.sendNewCard(data.placeName, data.placeLink)

@@ -84,7 +84,6 @@ export default class FormValidator {
     this._formError = this._formElement.querySelector(`.${textInput.id}-error`);
     textInput.classList.remove(this._inputErrorClass);
     this._formError.classList.remove(this._errorClass);
-    // Очистим ошибку
     this._formError.textContent = "";
   }
 

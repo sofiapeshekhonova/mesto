@@ -41,7 +41,6 @@ export default class Card {
       if (like._id == this._userId) {
         this._likeButton.classList.add('photo-card__description-like_active')
       }})
-
     return this._element;
   }
 

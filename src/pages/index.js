@@ -52,7 +52,6 @@ cardValidator.enableValidation();
 const avatarValidator = new FormValidator(validationConfig, formAvatar);
 avatarValidator.enableValidation();
 
-
 const api = new Api({
   baseUrl: 'https://nomoreparties.co/v1/cohort-54',
   headers: {
@@ -67,7 +66,6 @@ const userInformation = new UserInfo({
   personalInformation: ".profile__information-job",
   avatar: '.profile__picture-avatar'
 });
-
 
 let userId
 Promise.all([api.getUserInfos(),api.getInitialCards()])
@@ -135,38 +133,37 @@ function createCard(item) {
       popupWithPicture.open(name, link);
     },
     handleDeleteClick: (cardId) => {
-        popupConfirm.open()
-        popupConfirm.setSubmit(() => {
-              api.removeCard(cardId)
-                .then(() => {
-                  card.handleDeleteCard()
-                  popupConfirm.close()
-                })
-                .catch((err) => {
-                  console.log(err);
-                });
-            })
-      },
-      handleLikeClick: (cardId) => {
-        api.putLikeCard(cardId)
-        .then((i) => {
-         card.handleCardLike(i)
+      popupConfirm.open()
+      popupConfirm.setSubmit(() => {
+        api.removeCard(cardId)
+        .then(() => {
+          card.handleDeleteCard()
+          popupConfirm.close()
         })
         .catch((err) => {
           console.log(err);
         });
-      },
-      handleLikeDeleteClick: (cardId) => {
-        api.deleteLike(cardId)
-        .then((i) => {
-          card.handleCardLike(i)
-         })
-         .catch((err) => {
-           console.log(err);
-         });
-      }
-    }, ".photo-cards"
-  );
+      })
+    },
+    handleLikeClick: (cardId) => {
+      api.putLikeCard(cardId)
+      .then((i) => {
+        card.handleCardLike(i)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    },
+    handleLikeDeleteClick: (cardId) => {
+      api.deleteLike(cardId)
+      .then((i) => {
+        card.handleCardLike(i)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+  }, ".photo-cards");
 
   // Создаём карточку и возвращаем наружу
   const cardItem = card.generateCard();

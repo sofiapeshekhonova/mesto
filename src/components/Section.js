@@ -19,5 +19,4 @@ export default class Section {
   addItem(element) { //принимает DOM-элемент и добавляет его в контейнер.
     this._container.prepend(element);
   }
-
 }
